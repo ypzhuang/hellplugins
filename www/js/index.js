@@ -40,6 +40,15 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+       
+        Echo.echo('China', this.echoCallback.bind(this))
+        
+    },
+
+    echoCallback: function(echo) {
+        var parentElement = document.getElementById('deviceready');
+        var echoElement = parentElement.querySelector('.echo');
+        echoElement.innerHTML = echo.msg
     }
 };
 
